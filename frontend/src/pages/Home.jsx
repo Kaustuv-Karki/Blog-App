@@ -27,7 +27,6 @@ const Home = () => {
     };
     fetchBlogs();
   }, []);
-  console.log(blogs);
   return (
     <div className="max-w-[1280px] mx-auto flex items-center flex-col justify-center">
       <div className="flex justify-between items-center">

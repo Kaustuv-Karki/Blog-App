@@ -46,8 +46,6 @@ const Search = () => {
       console.log(error);
     }
   };
-
-  console.log(blogs);
   return (
     <div className="max-w-[1280px] mx-auto flex justify-center flex-col">
       <h1 className="text-white text-[2rem] font-semibold text-center py-5">

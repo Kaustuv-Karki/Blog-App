@@ -28,8 +28,6 @@ const EditBlog = () => {
     fetchBlog();
   }, []);
 
-  console.log(formData);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const isValid = await blogValidation.validate(formData);

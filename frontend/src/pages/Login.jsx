@@ -31,15 +31,12 @@ const Login = () => {
         localStorage.setItem("user", JSON.stringify(user));
         navigate("/");
       } else {
-        console.log("Invalid credentials");
         setError("Invalid credentials");
       }
     } catch (error) {
       console.log(error);
     }
   };
-
-  console.log(formData);
 
   return (
     <div className="flex mx-auto w-[400px] h-[450px] bg-white flex-col items-center justify-center my-[10%] rounded-sm">
