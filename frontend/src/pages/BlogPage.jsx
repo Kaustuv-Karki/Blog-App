@@ -53,14 +53,15 @@ const BlogPage = () => {
             <p className="text-white border border-white px-5 py-1 w-fit rounded-md">
               {blogData?.category}
             </p>
-            {blogData?.author ===
-              JSON.parse(localStorage.getItem("user"))._id && (
-              <button
-                className="text-white py-2 px-5 bg-green-600 rounded-md"
-                onClick={() => navigate(`/blog/edit/${id}`)}>
-                Edit Blog
-              </button>
-            )}
+            {localStorage.getItem("user") &&
+              blogData?.author ===
+                JSON.parse(localStorage.getItem("user"))._id && (
+                <button
+                  className="text-white py-2 px-5 bg-green-600 rounded-md"
+                  onClick={() => navigate(`/blog/edit/${id}`)}>
+                  Edit Blog
+                </button>
+              )}
           </div>
           <div className="py-4">
             <h1 className="text-[2.5rem] text-white">{blogData?.title}</h1>
@@ -84,19 +85,21 @@ const BlogPage = () => {
           <p className="py-6 text-white">{blogData?.content}</p>
           <div className="border-t border-white py-8 mt-8">
             <h2 className="text-white text-[1.2rem] fonr-semibold">Comments</h2>
-            <form className="py-6" onSubmit={submitComment}>
-              <textarea
-                type="text"
-                rows={5}
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-                placeholder="Add a comment"
-                className="bg-gray-300 text-black placeholder-black px-4 py-2 rounded-md w-full outline-none"
-              />
-              <button className="bg-[#D6482C] text-white px-4 py-2 rounded-md mt-4">
-                Submit
-              </button>
-            </form>
+            {localStorage.getItem("user") && (
+              <form className="py-6" onSubmit={submitComment}>
+                <textarea
+                  type="text"
+                  rows={5}
+                  value={comment}
+                  onChange={(e) => setComment(e.target.value)}
+                  placeholder="Add a comment"
+                  className="bg-gray-300 text-black placeholder-black px-4 py-2 rounded-md w-full outline-none"
+                />
+                <button className="bg-[#D6482C] text-white px-4 py-2 rounded-md mt-4">
+                  Submit
+                </button>
+              </form>
+            )}
             {blogData?.comments.toReversed().map((comment, index) => (
               <Comment
                 key={index}

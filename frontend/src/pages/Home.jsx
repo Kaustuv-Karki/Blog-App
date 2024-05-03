@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const [blogs, setBlogs] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [postPerPage] = useState(8);
+  const [postPerPage] = useState(6);
   const navigate = useNavigate();
 
   const lastPageIndex = currentPage * postPerPage;
@@ -50,6 +50,11 @@ const Home = () => {
           Create Blogs
         </div>
       </div>
+      {currentPosts.length === 0 && (
+        <h1 className="text-white text-[2rem] py-5 font-semibold">
+          No Blogs Found
+        </h1>
+      )}
       <div className="flex gap-4 flex-wrap justify-center flex-row">
         {currentPosts.map((blog) => BlogCard((blog = { blog })))}
       </div>

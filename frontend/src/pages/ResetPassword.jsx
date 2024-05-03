@@ -58,9 +58,9 @@ const ResetPassword = () => {
           <label className="w-8 text-[1.15rem] font-semibold text-slate-600">
             Password
           </label>
-          <div>
+          <div className="w-[300px] ">
             <input
-              className="w-[300px] py-2 px-4 rounded-md bg-[#EFEEEC] outline-none"
+              className="py-2 px-4 rounded-md bg-[#EFEEEC] outline-none"
               type={passwordType}
               name="passowrd"
               value={password}
@@ -82,9 +82,9 @@ const ResetPassword = () => {
           <label className="w-full text-[1.15rem] font-semibold text-slate-600">
             Confirm Password
           </label>
-          <div>
+          <div className="w-[300px] ">
             <input
-              className="w-[300px] py-2 px-4 rounded-md bg-[#EFEEEC] outline-none"
+              className=" py-2 px-4 rounded-md bg-[#EFEEEC] outline-none"
               type={confirmPasswordType}
               name="password"
               value={confirmPassword}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { blogValidation } from "../Validations/blogValidations";
+import { useNavigate } from "react-router-dom";
 
 const CreateBlog = () => {
   const [formData, setFormData] = useState({
@@ -7,9 +8,12 @@ const CreateBlog = () => {
   });
   const [tag, setTag] = useState("");
   console.log(formData.tags);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const loggedInUser = JSON.parse(localStorage.getItem("user"));
+    if (!loggedInUser) navigate("/login");
     const isValid = await blogValidation.validate(formData);
     if (!isValid) return;
     try {
