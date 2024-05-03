@@ -55,7 +55,9 @@ const Home = () => {
         </h1>
       )}
       <div className="flex gap-4 flex-wrap justify-center flex-row">
-        {currentPosts.map((blog) => BlogCard((blog = { blog })))}
+        {currentPosts.map((blog, index) => (
+          <BlogCard key={index} blog={blog} />
+        ))}
       </div>
       <div className="py-5">
         <Pagination
