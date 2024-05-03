@@ -1,10 +1,11 @@
 import jwt from "jsonwebtoken";
+const JWT_SECRET = "secret";
 
 export const verifyToken = (req, res, next) => {
   const token = req.headers["access_token"].split(" ")[1];
   if (!token) return res.status(401).json({ message: "Unauthorized" });
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, JWT_SECRET);
     req.user = decoded;
     next();
   } catch (error) {

@@ -5,13 +5,17 @@ import dotenv from "dotenv";
 import userRoutes from "./routes/user.routes.js";
 import blogRoutes from "./routes/blog.routes.js";
 
+const MONGO_URI =
+  "mongodb+srv://admin:admin@cluster0.jzgm4vu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
 const app = express();
 app.use(cors());
 dotenv.config();
 app.use(express.json());
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  // .connect(process.env.MONGO_URI)
+  .connect(MONGO_URI)
   .then(() => console.log("Coneected to MongoDB"))
   .catch((err) => console.log(err));
 
